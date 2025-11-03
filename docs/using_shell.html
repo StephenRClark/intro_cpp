@@ -5144,8 +5144,8 @@ file1          </code></pre>
 <p><strong>11. Edit a file</strong>: To open a file in a text editor like <code>nano</code> for editing</p>
 <div class="sourceCode" id="cb16" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nano file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>12. View the contents of a file</strong>: To display the contents of a file in the terminal</p>
-<div class="sourceCode" id="cb17" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">more</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Press <code>return</code> to scoll and <code>q</code> to exit.</p>
+<div class="sourceCode" id="cb17" data-language="none"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">more</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Press <code>[return]</code> to scoll and <code>q</code> to exit.</p>
 <p><strong>13. Search for text in a file</strong>: To search for specific text in a file</p>
 <div class="sourceCode" id="cb18" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>grep <span class="st">&quot;search_term&quot;</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>14. Display disk usage</strong>: To show the disk usage of files and directories</p>
@@ -5189,7 +5189,7 @@ DESCRIPTION
 </section>
 <section id="comments-and-preprocessor-directives" class="level2">
 <h2 class="anchored" data-anchor-id="comments-and-preprocessor-directives">Comments and preprocessor directives</h2>
-<p>The expression <code>//</code> anywhere in a source file makes everything from then on until the end of the line is a comment. You can add longer comments using <code>/*</code> and <code>*/</code> pairs which comment out everything in between even if it spans across many lines. You are encouraged to use comments liberally in your code.</p>
+<p>The expression <code>//</code> anywhere in a source file makes everything from then on until the end of the line is a comment. You can add longer comments using <code>/*</code> and <code>*/</code> pairs which comment out everything in between even if it spans across many lines. You are encouraged to use comments liberally in your code. Remember, use comments not to describe what or how code does something (this should be obvious from the code itself), but why it does it.</p>
 <p>Statements like <code>#include</code> seen in <code>hello.cpp</code> above are not C/C++ commands. Rather that they are <strong>preprocessor directives</strong> that start with a hash # symbol and don’t require the terminating semicolon. The C preprocessor is a scripting language allowing macro substitutions of the text in a source file. The most common is the <code>#include</code> directive which inserts the contents of an external header file at that location in the source file.</p>
 </section>
 <section id="compilation-process" class="level2">
