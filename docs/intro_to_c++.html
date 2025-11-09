@@ -5372,62 +5372,61 @@ whole:                2.00</code></pre>
 <section id="logical-branching" class="level2">
 <h2 class="anchored" data-anchor-id="logical-branching">Logical branching</h2>
 <p>To make decisions that branch the execution in code we need conditional logical statements. One of the most common branching statements is IF ... THEN ... ELSE. In C/C++ <code>if</code> statements have the following general form:</p>
-<ul>
-<li><p><code>if (</code> <strong>logical expression</strong> <span class="math inline">\(X\)</span> <code>)</code></p></li>
-<li><p><code>{</code></p></li>
-<li><pre><code>  **block of code** - executed only if X is TRUE</code></pre></li>
-<li><p><code>}</code></p></li>
-<li><p><code>else if (</code> <strong>logical expression</strong> <span class="math inline">\(Y\)</span> <code>)</code></p></li>
-<li><p><code>{</code></p></li>
-<li><pre><code>  **block of code** - executed only if X is FALSE and Y is TRUE</code></pre></li>
-<li><p><code>}</code></p></li>
-<li><p><code>else</code></p></li>
-<li><p><code>{</code></p></li>
-<li><pre><code>  **block of code** - executed only if X and Y are FALSE</code></pre></li>
-<li><p><code>}</code></p></li>
-</ul>
+<div class="sourceCode" id="cb18" data-language="cpp"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (logical expression X)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  *block of code*</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> executed only if X is TRUE</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> (logical expression Y)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  *block of code*</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> executed only if X is FALSE and Y is TRUE</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  *block of code*</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> executed only if X and Y are FALSE  </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>As we have seen already blocks of code are delimited by <code>{ ... }</code>. If the blocks comprise of a single line then a more compact form can be used:</p>
-<ul>
-<li><p><code>if (</code> <strong>logical expression</strong> <span class="math inline">\(X\)</span> <code>)</code> <strong>line of code;</strong></p></li>
-<li><p><code>else if (</code> <strong>logical expression</strong> <span class="math inline">\(Y\)</span> <code>)</code> <strong>line of code;</strong></p></li>
-<li><p><code>else</code> <strong>line of code;</strong></p></li>
-</ul>
+<div class="sourceCode" id="cb19" data-language="cpp"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (logical expression X) *line of code*;</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> (logical expression Y) *line of code*;</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> *line of code*;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The numerous logical operations available are best illustrated by a set of examples:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1"></a>x<span class="op">=</span><span class="dv">5</span><span class="op">;</span>              <span class="co">// Set some values for x and y</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>y<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">==</span>y<span class="op">)</span>         <span class="co">// x is not equal to y =&gt; FALSE</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="cf">if</span> <span class="op">(</span>y<span class="op">=</span>x<span class="op">)</span>          <span class="co">// sets y to x (non-zero) =&gt; TRUE</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="cf">if</span> <span class="op">(!</span>x<span class="op">)</span>           <span class="co">// ! is the NOT operator =&gt; FALSE</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">||</span>y<span class="op">)</span>         <span class="co">// x OR y =&gt; TRUE</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">&amp;&amp;</span>y<span class="op">)</span>         <span class="co">// x AND y =&gt; FALSE</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">&amp;&amp;(</span>y<span class="op">=</span>x<span class="op">))</span>     <span class="co">// x AND x =&gt; TRUE </span></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">=&gt;</span><span class="dv">5</span> <span class="op">&amp;&amp;</span> y<span class="op">==</span>x<span class="op">)</span> <span class="co">// =&gt; FALSE</span></span>
-<span id="cb21-10"><a href="#cb21-10"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">!=</span><span class="dv">3</span> <span class="op">&amp;&amp;</span> y<span class="op">&lt;</span>x<span class="op">)</span>  <span class="co">// =&gt; TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1"></a>x<span class="op">=</span><span class="dv">5</span><span class="op">;</span>              <span class="co">// Set some values for x and y</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>y<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">==</span>y<span class="op">)</span>         <span class="co">// x is not equal to y =&gt; FALSE</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="cf">if</span> <span class="op">(</span>y<span class="op">=</span>x<span class="op">)</span>          <span class="co">// sets y to x (non-zero) =&gt; TRUE</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="cf">if</span> <span class="op">(!</span>x<span class="op">)</span>           <span class="co">// ! is the NOT operator =&gt; FALSE</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">||</span>y<span class="op">)</span>         <span class="co">// x OR y =&gt; TRUE</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">&amp;&amp;</span>y<span class="op">)</span>         <span class="co">// x AND y =&gt; FALSE</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">&amp;&amp;(</span>y<span class="op">=</span>x<span class="op">))</span>     <span class="co">// x AND x =&gt; TRUE </span></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">=&gt;</span><span class="dv">5</span> <span class="op">&amp;&amp;</span> y<span class="op">==</span>x<span class="op">)</span> <span class="co">// =&gt; FALSE</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="cf">if</span> <span class="op">(</span>x<span class="op">!=</span><span class="dv">3</span> <span class="op">&amp;&amp;</span> y<span class="op">&lt;</span>x<span class="op">)</span>  <span class="co">// =&gt; TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A few points to note. In C/C++ <code>=</code> is for assignment of variables while <code>==</code> is for testing whether variables are EQUAL. The NOT operator is <code>!</code> and NOT EQUAL is <code>!=</code>. Greater or equal is given by <code>&gt;=</code> and less or equal is given by <code>&lt;=</code>. Some logical operations are given by pairs of characters such as <code>&amp;&amp;</code> for AND and <code>||</code> for OR. A logical expression involving numerical arithmetic is FALSE if it evaluates to zero, and TRUE otherwise<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 <p>Using <code>if</code> statements we can now improve our earlier code accepting input from the user to include some basic error handling:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>    <span class="dt">int</span> i<span class="op">;</span> <span class="co">// Define a variable to store input </span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;Please enter an integer value: &quot;</span><span class="op">;</span> </span>
-<span id="cb22-6"><a href="#cb22-6"></a>    <span class="co">// Extract a value from the keyboard</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a>    <span class="cf">if</span> <span class="op">(!(</span><span class="bu">std::</span>cin <span class="op">&gt;&gt;</span> i<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a>        <span class="bu">std::</span>cerr <span class="op">&lt;&lt;</span> <span class="st">&quot;That wasn&#39;t an integer.&quot;</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span> <span class="co">// Output to standard error</span></span>
-<span id="cb22-9"><a href="#cb22-9"></a>        <span class="cf">return</span> EXIT_FAILURE<span class="op">;</span> <span class="co">// Return error code</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a>    <span class="op">}</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;The value you entered is &quot;</span> <span class="op">&lt;&lt;</span> i<span class="op">;</span></span>
-<span id="cb22-12"><a href="#cb22-12"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot; and its double is &quot;</span> <span class="op">&lt;&lt;</span> i<span class="op">*</span><span class="dv">2</span> <span class="op">&lt;&lt;</span> <span class="st">&quot;.&quot;</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
-<span id="cb22-13"><a href="#cb22-13"></a>    <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>    <span class="dt">int</span> i<span class="op">;</span> <span class="co">// Define a variable to store input </span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;Please enter an integer value: &quot;</span><span class="op">;</span> </span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="co">// Extract a value from the keyboard</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>    <span class="cf">if</span> <span class="op">(!(</span><span class="bu">std::</span>cin <span class="op">&gt;&gt;</span> i<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>        <span class="bu">std::</span>cerr <span class="op">&lt;&lt;</span> <span class="st">&quot;That wasn&#39;t an integer.&quot;</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span> <span class="co">// Output to standard error</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>        <span class="cf">return</span> EXIT_FAILURE<span class="op">;</span> <span class="co">// Return error code</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a>    <span class="op">}</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;The value you entered is &quot;</span> <span class="op">&lt;&lt;</span> i<span class="op">;</span></span>
+<span id="cb21-12"><a href="#cb21-12"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot; and its double is &quot;</span> <span class="op">&lt;&lt;</span> i<span class="op">*</span><span class="dv">2</span> <span class="op">&lt;&lt;</span> <span class="st">&quot;.&quot;</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a>    <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="looping" class="level2">
 <h2 class="anchored" data-anchor-id="looping">Looping</h2>
 <p>A common purpose of code is to repeating sequences of tasks. The most well known iterator is the FOR-LOOP which in C/C++ has the general form:</p>
-<div class="itemize">
-<p><code>for (</code> <strong>initialiser</strong> <code>;</code> <strong>test expression</strong> <code>;</code> <strong>incrementer</strong><code>)</code> <code>{</code></p>
-<pre><code>  block of code</code></pre>
-<p><code>}</code></p>
-</div>
+<div class="sourceCode" id="cb22" data-language="cpp"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="er">(initialiser;</span> <span class="er">test</span> <span class="er">expression;</span> <span class="er">incrementer)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  *block of code*</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> executed if text expression is true</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The bracketed section <code>for ( ...)</code> contains three pieces separated by semicolons. These are C/C++ commands which behave as follows:</p>
 <ul>
 <li><p><strong>initialiser</strong> – is executed once when then program first reaches the <code>for</code> statement.</p></li>
@@ -5435,16 +5434,16 @@ whole:                2.00</code></pre>
 <li><p><strong>incrementer</strong> – is executed at the end of the code block, after which the test expression is re-evaluated to see if the code block is repeated.</p></li>
 </ul>
 <p>Here is a simple example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="op">{</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">30</span><span class="op">;</span> i<span class="op">=</span>i<span class="op">+</span><span class="dv">3</span><span class="op">)</span> </span>
-<span id="cb24-6"><a href="#cb24-6"></a>  <span class="op">{</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;i=&quot;</span> <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="st">&quot;, i^2=&quot;</span> <span class="op">&lt;&lt;</span> i<span class="op">*</span>i <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span> <span class="co">// Display output</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>  <span class="op">}</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
-<span id="cb24-10"><a href="#cb24-10"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="op">{</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">30</span><span class="op">;</span> i<span class="op">=</span>i<span class="op">+</span><span class="dv">3</span><span class="op">)</span> </span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="op">{</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;i=&quot;</span> <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="st">&quot;, i^2=&quot;</span> <span class="op">&lt;&lt;</span> i<span class="op">*</span>i <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span> <span class="co">// Display output</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>  <span class="op">}</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This outputs:</p>
 <pre class="none" data-language="none"><code>i=0, i^2=0
 i=3, i^2=9
@@ -5456,35 +5455,38 @@ i=18, i^2=324
 i=21, i^2=441
 i=24, i^2=576
 i=27, i^2=729</code></pre>
-<p>There are also more specialised WHILE-LOOPS in C/C++ which come in two variants as:</p>
-<div class="itemize">
-<p><code>do</code> <code>{</code></p>
-<pre><code>  block of code</code></pre>
-<p><code>}</code> <code>while(</code> <strong>logical expression</strong> <code>);</code></p>
-</div>
+<p>Since the code block in this example is just one line the <code>for</code> loop could have been written as just one line, although given its length this would make it less readable. There are also more specialised WHILE-LOOPS in C/C++ which come in two variants as:</p>
+<div class="sourceCode" id="cb25" data-language="cpp"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>{ </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  *block of code*</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> always executed at least once</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> repeated only if logical expression is TRUE</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>while (logical expression<span class="kw">)</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and also as:</p>
-<div class="itemize">
-<p><code>while(</code> <strong>logical expression</strong> <code>)</code> <code>{</code></p>
-<pre><code>  block of code</code></pre>
-<p><code>}</code></p>
-</div>
+<div class="sourceCode" id="cb26" data-language="cpp"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>while (logical expression<span class="kw">)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>{ </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  *block of code*</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  -<span class="kw">&gt;</span> executed only if logical expression is TRUE</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Both forms repeatedly execute the code block until logical expression becomes FALSE. The difference between them is the <code>do ... while</code> form runs the code block and then evaluates condition, so the code block is guaranteed to be executed at least once, whereas the <code>while</code> form evaluates condition first. Here is a simple example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a></span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="op">{</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a>  <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// Do initialiser</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a>  <span class="dt">int</span> isq<span class="op">;</span> </span>
-<span id="cb28-7"><a href="#cb28-7"></a>  </span>
-<span id="cb28-8"><a href="#cb28-8"></a>  <span class="cf">while</span> <span class="op">(</span>i<span class="op">&lt;</span><span class="dv">10</span><span class="op">)</span> </span>
-<span id="cb28-9"><a href="#cb28-9"></a>  <span class="op">{</span></span>
-<span id="cb28-10"><a href="#cb28-10"></a>    isq <span class="op">=</span> i<span class="op">*</span>i<span class="op">;</span> <span class="co">// Compute i squared</span></span>
-<span id="cb28-11"><a href="#cb28-11"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;i=&quot;</span> <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="st">&quot;, i^2=&quot;</span> <span class="op">&lt;&lt;</span> isq <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Display output</span></span>
-<span id="cb28-12"><a href="#cb28-12"></a>    i<span class="op">++;</span> <span class="co">// Do incrementer</span></span>
-<span id="cb28-13"><a href="#cb28-13"></a>  <span class="op">}</span></span>
-<span id="cb28-14"><a href="#cb28-14"></a></span>
-<span id="cb28-15"><a href="#cb28-15"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
-<span id="cb28-16"><a href="#cb28-16"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="op">{</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// Do initialiser</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>  <span class="dt">int</span> isq<span class="op">;</span> </span>
+<span id="cb27-7"><a href="#cb27-7"></a>  </span>
+<span id="cb27-8"><a href="#cb27-8"></a>  <span class="cf">while</span> <span class="op">(</span>i<span class="op">&lt;</span><span class="dv">10</span><span class="op">)</span> </span>
+<span id="cb27-9"><a href="#cb27-9"></a>  <span class="op">{</span></span>
+<span id="cb27-10"><a href="#cb27-10"></a>    isq <span class="op">=</span> i<span class="op">*</span>i<span class="op">;</span> <span class="co">// Compute i squared</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;i=&quot;</span> <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="st">&quot;, i^2=&quot;</span> <span class="op">&lt;&lt;</span> isq <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Display output</span></span>
+<span id="cb27-12"><a href="#cb27-12"></a>    i<span class="op">++;</span> <span class="co">// Do incrementer</span></span>
+<span id="cb27-13"><a href="#cb27-13"></a>  <span class="op">}</span></span>
+<span id="cb27-14"><a href="#cb27-14"></a></span>
+<span id="cb27-15"><a href="#cb27-15"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The output is now:</p>
 <pre class="none" data-language="none"><code>i=0, i^2=0
 i=1, i^2=1
@@ -5500,21 +5502,21 @@ i=9, i^2=81</code></pre>
 <section id="casting-and-variable-scope" class="level2">
 <h2 class="anchored" data-anchor-id="casting-and-variable-scope">Casting and variable scope</h2>
 <p>To finish up let’s look at some subtle issues with variables. First, we stated earlier that C/C++ is strict about not having expressions that mix variables of different types. A commonly encountered case in scientific computing is expressions involving floating point and integer numbers. In fact C/C++ code mixing these numerical types will compile perfectly without error, but be careful to understand the implicit conversions occurring. Consider the following code:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
-<span id="cb30-4"><a href="#cb30-4"></a><span class="op">{</span></span>
-<span id="cb30-5"><a href="#cb30-5"></a>  <span class="dt">int</span> i<span class="op">,</span>j<span class="op">;</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>  <span class="dt">float</span> x<span class="op">,</span> y<span class="op">,</span> z<span class="op">;</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a>  i<span class="op">=</span><span class="dv">10</span><span class="op">;</span></span>
-<span id="cb30-8"><a href="#cb30-8"></a>  j<span class="op">=</span><span class="dv">3</span><span class="op">;</span></span>
-<span id="cb30-9"><a href="#cb30-9"></a>  x<span class="op">=</span>i<span class="op">/</span>j<span class="op">;</span> <span class="co">// Compute 10/3 and store in float x</span></span>
-<span id="cb30-10"><a href="#cb30-10"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;x=&quot;</span> <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
-<span id="cb30-11"><a href="#cb30-11"></a>  y <span class="op">=</span> <span class="fl">2.71828</span><span class="op">;</span> <span class="co">// Define float y</span></span>
-<span id="cb30-12"><a href="#cb30-12"></a>  z <span class="op">=</span> y<span class="op">/</span>j<span class="op">;</span> <span class="co">// Compute y/3 and store in float z</span></span>
-<span id="cb30-13"><a href="#cb30-13"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;z=&quot;</span> <span class="op">&lt;&lt;</span> z <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
-<span id="cb30-14"><a href="#cb30-14"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
-<span id="cb30-15"><a href="#cb30-15"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="op">{</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="dt">int</span> i<span class="op">,</span>j<span class="op">;</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="dt">float</span> x<span class="op">,</span> y<span class="op">,</span> z<span class="op">;</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>  i<span class="op">=</span><span class="dv">10</span><span class="op">;</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>  j<span class="op">=</span><span class="dv">3</span><span class="op">;</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>  x<span class="op">=</span>i<span class="op">/</span>j<span class="op">;</span> <span class="co">// Compute 10/3 and store in float x</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;x=&quot;</span> <span class="op">&lt;&lt;</span> x <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb29-11"><a href="#cb29-11"></a>  y <span class="op">=</span> <span class="fl">2.71828</span><span class="op">;</span> <span class="co">// Define float y</span></span>
+<span id="cb29-12"><a href="#cb29-12"></a>  z <span class="op">=</span> y<span class="op">/</span>j<span class="op">;</span> <span class="co">// Compute y/3 and store in float z</span></span>
+<span id="cb29-13"><a href="#cb29-13"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;z=&quot;</span> <span class="op">&lt;&lt;</span> z <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb29-14"><a href="#cb29-14"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
+<span id="cb29-15"><a href="#cb29-15"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The output from this:</p>
 <pre class="none" data-language="none"><code>x=3
 z=0.906093</code></pre>
@@ -5522,31 +5524,31 @@ z=0.906093</code></pre>
 <pre class="none" data-language="none"><code>x=3.33333
 z=0.906093</code></pre>
 <p>Variables created in C/C++ have a well-defined scope. So far our codes have been very simple and we have declared variables at the start of the <code>main()</code> function that comprises our entire program. All subsequent lines within <code>main()</code> can access these variables. There are two cases where this is not true: (i) we don’t declare variables at the start, meaning they are only accessible to lines that come after, (ii) we declare variables inside a code block delimited by <code>{ ... }</code>. This listing will generate compile errors and <strong>not</strong> run:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="op">{</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> num <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Case (i) - variable num not declared yet!    </span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>  <span class="dt">int</span> num <span class="op">=</span> <span class="dv">4</span><span class="op">;</span>  </span>
+<span id="cb32-7"><a href="#cb32-7"></a>  <span class="op">{</span></span>
+<span id="cb32-8"><a href="#cb32-8"></a>    <span class="dt">double</span> pi <span class="op">=</span> <span class="fl">3.14159</span><span class="op">;</span> <span class="co">// Variable pi declared inside a block</span></span>
+<span id="cb32-9"><a href="#cb32-9"></a>  <span class="op">}</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> pi <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Case (ii) - outside the block where pi was declared</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a>  </span>
+<span id="cb32-12"><a href="#cb32-12"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
+<span id="cb32-13"><a href="#cb32-13"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The first case is quite obvious, but the second is less so since the variable <code>pi</code> was defined before the output. Swapping lines 5-6, and deleting the <code>{ ... }</code> on lines 7 and 9 allows the program to compile and run as expected. The purpose of restricting the scope of a variable within a code block is that it guarantees a variable cannot contaminate other parts of your code accidentally. A nice use of variable scope is inside a <code>for</code> loop:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="dt">int</span> main<span class="op">()</span> </span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="dt">int</span> main <span class="op">()</span> </span>
 <span id="cb33-4"><a href="#cb33-4"></a><span class="op">{</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> num <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Case (i) - variable num not declared yet!    </span></span>
-<span id="cb33-6"><a href="#cb33-6"></a>  <span class="dt">int</span> num <span class="op">=</span> <span class="dv">4</span><span class="op">;</span>  </span>
-<span id="cb33-7"><a href="#cb33-7"></a>  <span class="op">{</span></span>
-<span id="cb33-8"><a href="#cb33-8"></a>    <span class="dt">double</span> pi <span class="op">=</span> <span class="fl">3.14159</span><span class="op">;</span> <span class="co">// Variable pi declared inside a block</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">30</span><span class="op">;</span> i<span class="op">=</span>i<span class="op">+</span><span class="dv">3</span><span class="op">)</span> <span class="co">// Declare i inside for loop</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>  <span class="op">{</span></span>
+<span id="cb33-7"><a href="#cb33-7"></a>    <span class="dt">int</span> isq <span class="op">=</span> i<span class="op">*</span>i<span class="op">;</span> <span class="co">// Declare and compute i squared</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;i=&quot;</span> <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="st">&quot;, i^2=&quot;</span> <span class="op">&lt;&lt;</span> isq <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Display output</span></span>
 <span id="cb33-9"><a href="#cb33-9"></a>  <span class="op">}</span></span>
-<span id="cb33-10"><a href="#cb33-10"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> pi <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Case (ii) - outside the block where pi was declared</span></span>
-<span id="cb33-11"><a href="#cb33-11"></a>  </span>
-<span id="cb33-12"><a href="#cb33-12"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
-<span id="cb33-13"><a href="#cb33-13"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The first case is quite obvious, but the second is less so since the variable <code>pi</code> was defined before the output. Swapping lines 5-6, and deleting the <code>{ ... }</code> on lines 7 and 9 allows the program to compile and run as expected. The purpose of restricting the scope of a variable within a code block is that it guarantees a variable cannot contaminate other parts of your code accidentally. A nice use of variable scope is inside a <code>for</code> loop:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a></span>
-<span id="cb34-3"><a href="#cb34-3"></a><span class="dt">int</span> main <span class="op">()</span> </span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="op">{</span></span>
-<span id="cb34-5"><a href="#cb34-5"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">30</span><span class="op">;</span> i<span class="op">=</span>i<span class="op">+</span><span class="dv">3</span><span class="op">)</span> <span class="co">// Declare i inside for loop</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>  <span class="op">{</span></span>
-<span id="cb34-7"><a href="#cb34-7"></a>    <span class="dt">int</span> isq <span class="op">=</span> i<span class="op">*</span>i<span class="op">;</span> <span class="co">// Declare and compute i squared</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;i=&quot;</span> <span class="op">&lt;&lt;</span> i <span class="op">&lt;&lt;</span> <span class="st">&quot;, i^2=&quot;</span> <span class="op">&lt;&lt;</span> isq <span class="op">&lt;&lt;</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">// Display output</span></span>
-<span id="cb34-9"><a href="#cb34-9"></a>  <span class="op">}</span></span>
-<span id="cb34-10"><a href="#cb34-10"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
-<span id="cb34-11"><a href="#cb34-11"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-10"><a href="#cb33-10"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here we have dispensed with declaring the variable <code>i</code> for the iteration in the <code>main()</code> block and instead declare and initialise it within the <code>for</code> loop. Also, we declare and define <code>isq</code> within the <code>for</code> loop’s code block. Neither of these variables are accessible outside the <code>for</code> loop so we are free, for example, to declare and use <code>i</code> in another separate <code>for</code> loop later. When we introduce functions in an upcoming workshop we will consider the issue of variable scope again.</p>
 </section>
 <section id="additional-information" class="level2">
@@ -5564,7 +5566,7 @@ z=0.906093</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution code
+Example code
 </div>
 </div>
 <div class="callout-body-container callout-body">
