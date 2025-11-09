@@ -5423,12 +5423,11 @@ whole:                2.00</code></pre>
 <section id="looping" class="level2">
 <h2 class="anchored" data-anchor-id="looping">Looping</h2>
 <p>A common purpose of code is to repeating sequences of tasks. The most well known iterator is the FOR-LOOP which in C/C++ has the general form:</p>
-<ul>
-<li><p><code>for (</code> <strong>initialiser</strong> <code>;</code> <strong>test expression</strong> <code>;</code> <strong>incrementer</strong> <code>)</code></p></li>
-<li><p><code>{</code></p></li>
-<li><pre><code>  **block of code**</code></pre></li>
-<li><p><code>}</code></p></li>
-</ul>
+<div class="itemize">
+<p><code>for (</code> <strong>initialiser</strong> <code>;</code> <strong>test expression</strong> <code>;</code> <strong>incrementer</strong><code>)</code> <code>{</code></p>
+<pre><code>  block of code</code></pre>
+<p><code>}</code></p>
+</div>
 <p>The bracketed section <code>for ( ...)</code> contains three pieces separated by semicolons. These are C/C++ commands which behave as follows:</p>
 <ul>
 <li><p><strong>initialiser</strong> – is executed once when then program first reaches the <code>for</code> statement.</p></li>
@@ -5459,20 +5458,16 @@ i=24, i^2=576
 i=27, i^2=729</code></pre>
 <p>There are also more specialised WHILE-LOOPS in C/C++ which come in two variants as:</p>
 <div class="itemize">
-<p><code>do</code></p>
-<p><code>{</code></p>
-<pre><code>**block of code**</code></pre>
-<p><code>}</code></p>
-<p>while(</p>
-<p><strong>logical expression</strong> <code>);</code></p>
+<p><code>do</code> <code>{</code></p>
+<pre><code>  block of code</code></pre>
+<p><code>}</code> <code>while(</code> <strong>logical expression</strong> <code>);</code></p>
 </div>
 <p>and also as:</p>
-<ul>
-<li><p><code>while(</code> <strong>logical expression</strong> <code>)</code></p></li>
-<li><p><code>{</code></p></li>
-<li><pre><code>  **block of code**</code></pre></li>
-<li><p><code>}</code></p></li>
-</ul>
+<div class="itemize">
+<p><code>while(</code> <strong>logical expression</strong> <code>)</code> <code>{</code></p>
+<pre><code>  block of code</code></pre>
+<p><code>}</code></p>
+</div>
 <p>Both forms repeatedly execute the code block until logical expression becomes FALSE. The difference between them is the <code>do ... while</code> form runs the code block and then evaluates condition, so the code block is guaranteed to be executed at least once, whereas the <code>while</code> form evaluates condition first. Here is a simple example:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a></span>
@@ -5562,7 +5557,20 @@ z=0.906093</code></pre>
 <li><p><a href="https://www.tutorialspoint.com/cplusplus/index.htm" class="uri">https://www.tutorialspoint.com/cplusplus/index.htm</a></p></li>
 <li><p><a href="https://www.cplusplus.com" class="uri">https://www.cplusplus.com</a></p></li>
 </ul>
-<p>Many of these sites allow you to edit and run code online, for example via the C++ shell <a href="https://www.cplusplus.com" class="uri">cpp.sh</a>, but using <code>Noteable</code> as described above is strongly recommended.</p>
+<p>Many of these sites allow you to edit and run code online, for example via the C++ shell <a href="https://www.cplusplus.com" class="uri">cpp.sh</a>, but using <code>Noteable</code> as described above is strongly recommended. <span class="math inline">\(\Box\)</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can download the .zip <a href="./code/workshop2_example_code.zip">workshop example code</a> source files of the example codes in this workshop.</p>
+</div>
+</div>
 
 
 </section>

@@ -5362,6 +5362,19 @@ This returns <code>true</code> if <code>size()</code> is zero.</p>
 <p>Both lines use <code>std::vector&lt;float&gt;</code>, which is a vector of <code>float</code>s, as the <code>&lt;type&gt;</code> for the vector<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This creates a vector of vectors. In the first case show that explicit nested <code>{.}</code> initialisation possible with multidimensional arrays is also is allowed for multidimensional vectors. The second case nests the bracketed initialisation <code>(&lt;size&gt;, &lt;value&gt;)</code> of vectors, so <code>C(Arows, std::vector&lt;float&gt; (Bcols, 0))</code> initialises <code>C</code> with <code>Arows</code> of vectors each of <code>Bcols</code> size themselves initialised to zero. Note that line 25 of the listing we use the <code>[.][.]</code> indexing to access elements of the 2d vector. The generalisation to higher dimensional vectors follows identically by constructing <em>vectors of vectors of vectors</em> using a declaration with a form like:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">float</span><span class="op">&gt;&gt;&gt;</span> D<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are other container classes besides vectors in the standard C++ library which you will encounter next year. However, hopefully this brief introduction makes it clear that vectors are a user friendly and safe way to handle numerical data in C++. <span class="math inline">\(\Box\)</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can download the .zip <a href="./code/workshop3_example_code.zip">workshop example code</a> source files of the example codes in this workshop.</p>
+</div>
+</div>
 
 
 </section>
