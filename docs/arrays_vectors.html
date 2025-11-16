@@ -5123,7 +5123,7 @@ window.Quarto = {
 <p>We can also initialise arrays with values within our declaration:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1"></a><span class="dt">int</span> A<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">17</span><span class="op">,</span> <span class="dv">9</span><span class="op">};</span> <span class="co">// Define and initialise array of 3 integers</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="dt">int</span> B<span class="op">[]</span>  <span class="op">=</span> <span class="op">{</span><span class="dv">8</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">256</span><span class="op">,</span> <span class="dv">76</span><span class="op">,</span> <span class="dv">10</span><span class="op">};</span> <span class="co">// Define and initialise array with size implied</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In the second line we define <code>B</code> as an array but with an empty size leaving to the compiler to insert the size (in this case 5) as implied by our initialisation. If we repeatedly use arrays of a certain fixed size we can avoid having to explicitly write this size for every declaration in at least two ways. First, we could define a pre-processor symbol which gets replaced by a value before compilation. Second, we could define a <code>static const</code> variable which the compiler treats as a constant. Consider this example:</p>
+<p>In the second line we define <code>B</code> as an array but with an empty size leaving to the compiler to insert the size (in this case 5) as implied by our initialisation. The problem with this is that we need to hard-code this size somewhere in our code since we have no ability to interrogate arrays to find out how large them actually are. For this reason, if we repeatedly use arrays of a certain fixed size, we can avoid having to explicitly write this size for every declaration in at least two ways. First, we could define a pre-processor symbol which gets replaced by a value before compilation. Second, we could define a <code>static const</code> variable which the compiler treats as a constant. Consider this example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span><span class="pp"> </span></span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="dt">int</span> main<span class="op">()</span></span>
@@ -5368,7 +5368,7 @@ This returns <code>true</code> if <code>size()</code> is zero.</p>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution code
+Example code
 </div>
 </div>
 <div class="callout-body-container callout-body">
