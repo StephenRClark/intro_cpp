@@ -159,7 +159,7 @@
     "href": "simple_c++.html",
     "title": "Simple C++ calculation",
     "section": "",
-    "text": "For this first workshop we will be considering a simple mathematical calculation of the Mandelbrot set implemented in C++ as mandelbrot.cpp. This code generated the data plotted in Figure 1 below. It is not necessary for you to understand or modify this C++ code today, nor is it essential you have an in-depth understanding of the mathematics of this example. We will be learning much more about the syntax and functionality of C++ code over the next few workshops.\nThe Mandelbrot set calculation is a classic example of an embarrassingly parallel computation. After this workshop you are invited to try out the optional activity Using HPC where the same calculation is performed exploiting parallelism with HPC resources.",
+    "text": "For this first workshop we will be considering a simple mathematical calculation of the Mandelbrot set implemented in C++ as mandelbrot.cpp. This code generated the data plotted in Figure 1 below. It is not necessary for you to understand or modify this C++ code today, nor is it essential you have an in-depth understanding of the mathematics of this example. We will be learning much more about the syntax and functionality of C++ code over the next few workshops.\nThe Mandelbrot set calculation is a classic example of an embarrassingly parallel computation which During this workshop I will show we can exploit this parallelism on a local HPC resource BluePebble.",
     "crumbs": [
       "<B>Week 7 |</B> <I>The shell and C++</I>",
       "Simple C++ calculation"
