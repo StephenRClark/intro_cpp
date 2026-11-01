@@ -5138,7 +5138,7 @@ file1          </code></pre>
 <p><strong>11. Edit a file</strong>: To open a file in a text editor like <code>nano</code> for editing</p>
 <div class="sourceCode" id="cb16" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nano file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>12. View the contents of a file</strong>: To display the contents of a file in the terminal</p>
-<div class="sourceCode" id="cb17" data-language="none"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">more</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">more</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Press <code>[return]</code> to scoll and <code>q</code> to exit.</p>
 <p><strong>13. Search for text in a file</strong>: To search for specific text in a file</p>
 <div class="sourceCode" id="cb18" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>grep <span class="st">&quot;search_term&quot;</span> file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5194,7 +5194,9 @@ DESCRIPTION
 <div class="sourceCode" id="cb25" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>./hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="none" data-language="none"><code>Hello world!</code></pre>
 <p>We have therefore written, compiled and ran our first C++ program!</p>
-<p>It is worth pausing to reflect on what the above compilation process actually did in order to understand just how different it is from just running a python script. Broadly speaking four steps occur when a C++ program is compiled:</p>
+<p>It is worth pausing to reflect on what the above compilation process actually did in order to understand how different it is from just running a Python command like</p>
+<div class="sourceCode" id="cb27" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-c</span> &#39;print(<span class="st">&quot;Hello, world!&quot;</span><span class="kw">)</span>&#39;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Broadly speaking four steps occur when a C++ program is compiled:</p>
 <ol type="1">
 <li><p><strong>Preprocessing</strong>: the source file(s) are parsed with all comments being removed and any preprocessor directives are executed.</p></li>
 <li><p><strong>Compilation</strong>: the source file is then decomposed into a sequence of assembly code instructions.</p></li>
@@ -5202,9 +5204,9 @@ DESCRIPTION
 <li><p><strong>Linking</strong>: The final step is to insert together all the machine code fragments from the object files and external libraries to form a single executable file. In our compilation of <code>hello.cpp</code> above we only see the output from step</p></li>
 <li><p>If you are curious about step 2 we can use the <code>-S</code> flag tells the compiler to stop once compilation into assembly language is complete as</p></li>
 </ol>
-<div class="sourceCode" id="cb27" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>g++ hello.cpp <span class="at">-S</span> <span class="at">-o</span> hello.asm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>g++ hello.cpp <span class="at">-S</span> <span class="at">-o</span> hello.asm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here we have specified the output to be a file called <code>hello.asm</code> which contains the assembly instructions for our program. If you inspect its contents you will probably see something like this:</p>
-<div class="sourceCode" id="cb28" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">more</span> hello.asm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">more</span> hello.asm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="none" data-language="none"><code>        .section        __TEXT,__text,regular,pure_instructions
         .build_version macos, 12, 0     sdk_version 12, 1
         .globl  _main                           ## -- Begin function main
@@ -5237,9 +5239,9 @@ __ZNSt3__1lsINS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc: ## @_ZNSt3__
         pushq   %rbp
         ...</code></pre>
 <p>Likewise the compilation can also be stopped after step 3 is complete by using the <code>-c</code> flag as</p>
-<div class="sourceCode" id="cb30" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>g++ hello.cpp <span class="at">-c</span> <span class="at">-o</span> hello.o</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>g++ hello.cpp <span class="at">-c</span> <span class="at">-o</span> hello.o</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Our output now is <code>hello.o</code> which is the object binary file. In this simple case we can complete the full compilation by doing the linking step as:</p>
-<div class="sourceCode" id="cb31" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>g++ hello.o <span class="at">-o</span> hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32" data-language="cmd"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>g++ hello.o <span class="at">-o</span> hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the last workshop we will look at more complex programs where our code is distributed across several different files requiring us to perform a multi-step compilation using this <code>-c</code> flag. <span class="math inline">\(\Box\)</span></p>
 
 
