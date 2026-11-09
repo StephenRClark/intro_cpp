@@ -376,7 +376,7 @@
     "href": "workshop2.html",
     "title": "Workshop 2 - Introduction to C++",
     "section": "",
-    "text": "The learning objectives of this workshop are:\n\nTo learn the essential syntax of C++ code.\nTo apply basic variable types, iterative loops and logical conditionals.\nTo read and write data to the screen and a file.\nTo implement some simple mathematical methods in C++.\n\n\n\n\n\n\n\nSummary lecture slides\n\n\n\nHere are the introductory lecture slides for this workshop.\n\n\n\n\n\n\n\n\nExample codes\n\n\n\nSource code for all the examples discussed in the notes for this workshop are available here as a .zip examples.\n\n\nStart this workshop by reading Basics of C++. \\(\\Box\\)",
+    "text": "The learning objectives of this workshop are:\n\nTo learn the essential syntax of C++ code.\nTo apply basic variable types, iterative loops and logical conditionals.\nTo read and write data to the screen.\nTo implement some simple mathematical methods in C++.\n\n\n\n\n\n\n\nSummary lecture slides\n\n\n\nHere are the introductory lecture slides for this workshop.\n\n\n\n\n\n\n\n\nExample codes\n\n\n\nSource code for all the examples discussed in the notes for this workshop are available here as a .zip examples.\n\n\nStart this workshop by reading Basics of C++. \\(\\Box\\)",
     "crumbs": [
       "<B>Week 8 |</B> <I>Intro to C++</I>"
     ]
@@ -517,7 +517,7 @@
     "href": "workshop4.html",
     "title": "Workshop 4 - Functions",
     "section": "",
-    "text": "The learning objectives of this workshop are:\n\nTo understand how to declare and implement functions.\nTo see how to overload functions and pass-by-reference arguments.\nTo be able to implement random number generation.\nTo understand how implement multi-file compilations.\n\n\n\n\n\n\n\nSummary lecture slides\n\n\n\nHere are the introductory lecture slides for this workshop.\n\n\n\n\n\n\n\n\nExample codes\n\n\n\nSource code for all the examples discussed in the notes for this workshop are available here as a .zip examples.\n\n\nStart this workshop by reading Functions. \\(\\Box\\)",
+    "text": "The learning objectives of this workshop are:\n\nTo understand how to declare and implement functions.\nTo see how to overload functions and pass-by-reference arguments.\nTo pass command line arguments to a program.\nTo learn how to read and write data to a file.\nTo be able to implement random number generation.\nTo understand how implement multi-file compilations.\n\n\n\n\n\n\n\nSummary lecture slides\n\n\n\nHere are the introductory lecture slides for this workshop.\n\n\n\n\n\n\n\n\nExample codes\n\n\n\nSource code for all the examples discussed in the notes for this workshop are available here as a .zip examples.\n\n\nStart this workshop by reading Functions. \\(\\Box\\)",
     "crumbs": [
       "<B>Week 10 |</B> <I>Functions and extras</I>"
     ]
