@@ -5252,7 +5252,7 @@ end loop over i</code></pre>
 <span id="cb17-14"><a href="#cb17-14"></a>  </span>
 <span id="cb17-15"><a href="#cb17-15"></a>  <span class="cf">return</span> EXIT_SUCCESS<span class="op">;</span></span>
 <span id="cb17-16"><a href="#cb17-16"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can also use the <code>at()</code> method to access and change elements of a vector, meaning we could replace line 15 above with</p>
+<p>We can also use the <code>at()</code> method to access and change elements of a vector, meaning we could replace line 11 above with</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1"></a>squares<span class="op">.</span>at<span class="op">(</span>i<span class="op">)</span> <span class="op">=</span> i<span class="op">*</span>i<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The slight preference for this approach is that <code>at()</code> throws an exception whenever the element is out of bound, while <code>[.]</code> gives a garbage value.</p>
 <p>Notice also in line 6 we used a <code>static const int</code> to define at compile time the size of the vector like we would for arrays. This is not mandatory for vectors. The same code can work equally well using a user specified size at runtime here:</p>
